@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "target": "ES2017",
+        "esModuleInterop": true,
+        /* ... your props ... */
+    },
+    "ts-node": {
+        "esm": true
+    }
+  }

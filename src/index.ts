@@ -4,15 +4,15 @@ import * as os from 'os';
 import cluster from 'cluster';
 import Products from './products/Products.js';
 import db from './providers/Database.js';
-
+import axios from 'axios';
+import fs from 'fs'
 
 if(cluster.isPrimary) {
-    App.loadServer();
-    await db.sequelize.authenticate();
+    App.loadServer()
+    await db.sequelize.authenticate()
     await db.sequelize.sync()
 
     const products = await Products.getAllProducts()
-    console.log('www')
     products.map(async product => {
         const isCreate = await db.Product.findOne({
             where: {
